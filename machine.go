@@ -1281,3 +1281,12 @@ func (m *Machine) UpdateBalloonStats(ctx context.Context, statsPollingIntervals 
 	m.logger.Debug("UpdateBalloonStats successful")
 	return nil
 }
+
+func (m *Machine) CreateEntropyDevice(ctx context.Context, opts ...PutEntropyDeviceOpt) error {
+	if _, err := m.client.PutEntropyDevice(ctx, opts...); err != nil {
+		m.logger.Errorf("CreateEntropyDevice failed: %v", err)
+		return err
+	}
+	m.logger.Debug("UpdateEntropyDevice successful")
+	return nil
+}

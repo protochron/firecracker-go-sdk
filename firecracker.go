@@ -519,3 +519,17 @@ func (f *Client) GetExportVMConfig(opts ...GetExportVMConfigOpt) (*ops.GetExport
 
 	return f.client.Operations.GetExportVMConfig(p)
 }
+
+type PutEntropyDeviceOpt func(*ops.PutEntropyDeviceParams)
+
+// PutEntropyDevice is a wrapper for the swagger generated client to make calling of the
+// API easier.
+func (f *Client) PutEntropyDevice(ctx context.Context, opts ...PutEntropyDeviceOpt) (*ops.PutEntropyDeviceNoContent, error) {
+	p := ops.NewPutEntropyDeviceParams()
+	p.SetTimeout(time.Duration(f.firecrackerRequestTimeout) * time.Millisecond)
+	for _, opt := range opts {
+		opt(p)
+	}
+
+	return f.client.Operations.PutEntropyDevice(p)
+}

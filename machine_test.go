@@ -2422,3 +2422,9 @@ func testUpdateBalloonStats(ctx context.Context, t *testing.T, m *Machine) {
 		t.Errorf("Updating balloon staistics failed from testUpdateBalloonStats: %s", err)
 	}
 }
+
+func testPutEntropyDevice(ctx context.Context, t *testing.T, m *Machine) {
+	if _, err := m.client.PutEntropyDevice(ctx); err != nil {
+		t.Errorf("Put entropy device failed from testPutEntropyDevice: %s", err)
+	}
+}
